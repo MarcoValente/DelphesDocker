@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  delphes:
+    image: valentem1992/delphes
+    volumes:
+      - $PWD/files/delphes_card_ATLAS_PileUp.tcl:/app/card.tcl
+      - $PWD/files/test.hepmc:/app/test.hepmc
+      - $PWD/files:/app/files
+    command: 
+      ./DelphesHepMC card.tcl files/output.root test.hepmc
